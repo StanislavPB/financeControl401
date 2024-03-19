@@ -1,4 +1,4 @@
-package org.financecontrol401;
+package org.financecontrol401.task_01;
 
 
 public class FinanceControl401Application {
