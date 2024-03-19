@@ -1,5 +1,5 @@
 package org.financecontrol401.Repository;
-import Entity.Transaction;
+import org.financecontrol401.Entity.Transaction;
 
 import java.util.ArrayList;
 import java.util.Date;
