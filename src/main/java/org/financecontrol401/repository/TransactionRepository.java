@@ -1,80 +1,56 @@
-package org.financecontrol401.Repository;
-import org.financecontrol401.Entity.Transaction;
+package org.financecontrol401.repository;
+import org.financecontrol401.entity.Balance;
+import org.financecontrol401.entity.Transaction;
+import org.financecontrol401.entity.Category;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 
-    public class TransactionRepository  implements InterfeceRepository {
+public class TransactionRepository  implements InterfaceRepository {
 
+    private List<Transaction> transactions;
 
+    private int id = 0;
 
-        private List<Transaction> transactions;
-
-        private int id = 0;
-        public TransactionRepository() {
-            this.transactions = new ArrayList<>();
-        }
-
-        @Override
-        public Transaction add(Transaction newTransaction) {
-            newTransaction.setIdTransaction(++id);
-            transactions.add(newTransaction);
-            return newTransaction;
-        }
-
-        @Override
-        public Optional<Transaction> findByIdTarasacton(Integer IdTransaction) {
-            for (Transaction trasacton : transactions) {
-                if (trasacton.getIdTransaction().equals(IdTransaction)) {
-                    return Optional.of(trasacton);
-                }
-            }
-            return Optional.empty();
-        }
-
-        @Override
-        public Optional<Transaction> findByCategory(String category){
-
-            for (Transaction transaction : transactions) {
-                if (transaction.getCategory().equals(category)) {
-                    return Optional.of(transaction);
-                }
-            }
-            return Optional.empty();
-        }
-
-        public Optional<Transaction> findByType(String type){
-            for (Transaction transaction : transactions) {
-                if (transaction.getType().equals(type)) {
-                    return Optional.of(transaction);
-                }
-            }
-            return Optional.empty();
-
-
-        }
-
-        public Optional<Transaction> findByDate(Date date){
-            for (Transaction transaction : transactions) {
-                if (transaction.getDate().equals(date)) {
-                    return Optional.of(transaction);
-                }
-            }
-            return Optional.empty();
-
-
-        }
-
-
-
-
-        @Override
-        public List<Transaction> findAll() {
-            return transactions;
-        }
+    public TransactionRepository(List<Transaction> transactions, int id) {
+        this.transactions = transactions;
+        this.id = id;
     }
 
+    @Override
+    public Transaction add(Transaction newTask) {
+        return null;
+    }
 
+    @Override
+    public Balance change(double Summa) {
+        return null;
+    }
+
+    @Override
+    public List<Transaction> findByPeriod(Date date1, Date date2) {
+        return null;
+    }
+
+    @Override
+    public List<Transaction> findByCategory(Category category) {
+        return null;
+    }
+
+    @Override
+    public List<Transaction> findByType(Integer type) {
+        return null;
+    }
+
+    @Override
+    public List<Transaction> findByDate(Date date) {
+        return null;
+    }
+
+    @Override
+    public List<Transaction> findAll() {
+        return null;
+    }
+}

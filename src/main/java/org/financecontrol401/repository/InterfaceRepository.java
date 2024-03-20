@@ -1,13 +1,13 @@
 package org.financecontrol401.repository;
 
-import org.financecontrol401.Entity.Transaction;
+import org.financecontrol401.entity.Transaction;
 import org.financecontrol401.entity.Category;
-import org.financecontrol401.Entity.Balance;
+import org.financecontrol401.entity.Balance;
 
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
+
 public interface InterfaceRepository {
 
         public Transaction add(Transaction newTask);

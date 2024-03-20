@@ -1,7 +1,6 @@
 package org.financecontrol401.entity;
 
 public class Category {
-
     String categoryName;
    Integer categoryType;
 
