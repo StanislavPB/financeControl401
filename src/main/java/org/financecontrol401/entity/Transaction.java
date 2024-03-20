@@ -1,18 +1,20 @@
 package org.financecontrol401.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 
 public class Transaction {
     private int idTransaction=0;
-    private Integer type;
+    private TransactionType type;
     private Category category;
     private double amount;
     private String Description;
 
-    private Date date;
+    private LocalDate date;
 
-    public Transaction(Integer type, Category category, double amount, String description, Date date) {
+    public Transaction(TransactionType type, Category category, double amount, String description,
+                       LocalDate date) {
         this.type = type;
         this.category = category;
         this.amount = amount;
@@ -24,7 +26,7 @@ public class Transaction {
         return idTransaction;
     }
 
-    public Integer getType() {
+    public TransactionType getType() {
         return type;
     }
 
@@ -40,7 +42,7 @@ public class Transaction {
         return Description;
     }
 
-    public Date getDate() {
+    public LocalDate getDate() {
         return date;
     }
 

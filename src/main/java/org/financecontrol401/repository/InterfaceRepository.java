@@ -3,28 +3,30 @@ package org.financecontrol401.repository;
 import org.financecontrol401.entity.Transaction;
 import org.financecontrol401.entity.Category;
 import org.financecontrol401.entity.Balance;
+import org.financecontrol401.entity.TransactionType;
 
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
 public interface InterfaceRepository {
 
-        public Transaction add(Transaction newTask);
+        public boolean add(Transaction newTransaction);
 
-        public Balance change (double Summa);
-
-
-        public List <Transaction> findByPeriod(Date date1, Date date2);
+        public List<Transaction> findByDate(LocalDate date);
 
 
+        public List <Transaction> findByPeriod(LocalDate date1, LocalDate date2);
 
-        public List <Transaction> findByCategory(Category category);
 
-        public List <Transaction> findByType(Integer type);
 
-        public List <Transaction>  findByDate(Date date);
+        public List<Transaction> findByCategory(String categoryName);
 
+        public List<Transaction> findByType(TransactionType type);
+
+
+        public List<Transaction> findBySumma(Double sum);
         public List<Transaction> findAll();
 
 
