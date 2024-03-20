@@ -1,2 +1,4 @@
-package org.financecontrol401.dto;public class ClientResponce {
+package org.financecontrol401.dto;
+
+public class ClientResponse {
 }
