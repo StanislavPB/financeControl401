@@ -6,19 +6,18 @@ import java.time.LocalDate;
 
 public class Transaction {
     private int idTransaction=0;
-    private org.financecontrol401.entity.TransactionType type;
+    private TransactionType type;
     private Category category;
     private double amount;
-    private String Description;
+    private String description;
 
     private LocalDate date;
 
-    public Transaction(TransactionType type, Category category, double amount, String description,
-                       LocalDate date) {
+    public Transaction(TransactionType type, Category category, double amount, String description, LocalDate date) {
         this.type = type;
         this.category = category;
         this.amount = amount;
-        Description = description;
+        this.description = description;
         this.date = date;
     }
 
@@ -39,7 +38,7 @@ public class Transaction {
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public LocalDate getDate() {
@@ -57,7 +56,7 @@ public class Transaction {
                 ", type=" + type +
                 ", category=" + category +
                 ", amount=" + amount +
-                ", Description='" + Description + '\'' +
+                ", Description='" + description + '\'' +
                 ", date=" + date +
                 '}';
     }
