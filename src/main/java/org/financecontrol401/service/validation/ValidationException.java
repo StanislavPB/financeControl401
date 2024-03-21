@@ -1,4 +1,4 @@
 package org.financecontrol401.service.validation;
 
-public class Exception {
+public class ValidationException {
 }

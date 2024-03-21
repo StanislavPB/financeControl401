@@ -22,6 +22,10 @@ public class Transaction {
         this.date = date;
     }
 
+    public Transaction(){
+
+    };
+
     public int getIdTransaction() {
         return idTransaction;
     }
