@@ -1,10 +1,10 @@
 package org.financecontrol401.entity;
 
 public class Category {
-    String categoryName;
-   Integer categoryType;
+   String categoryName;
+   TransactionType categoryType;
 
-    public Category(String categoryName, Integer categoryType) {
+    public Category(String categoryName, TransactionType categoryType) {
         this.categoryName = categoryName;
         this.categoryType = categoryType;
     }
@@ -13,7 +13,7 @@ public class Category {
         return categoryName;
     }
 
-    public Integer getCategoryType() {
+    public TransactionType getCategoryType() {
         return categoryType;
     }
 

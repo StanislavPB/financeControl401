@@ -6,15 +6,14 @@ import java.time.LocalDate;
 
 public class Transaction {
     private int idTransaction=0;
-    private org.financecontrol401.entity.TransactionType type;
+    private TransactionType type;
     private Category category;
     private double amount;
     private String Description;
 
     private LocalDate date;
 
-    public Transaction(TransactionType type, Category category, double amount, String description,
-                       LocalDate date) {
+    public Transaction(TransactionType type, Category category, double amount, String description, LocalDate date) {
         this.type = type;
         this.category = category;
         this.amount = amount;
