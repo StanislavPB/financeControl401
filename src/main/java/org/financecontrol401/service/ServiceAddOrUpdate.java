@@ -1,4 +1,11 @@
 package org.financecontrol401.service;
+
+
+import org.financecontrol401.dto.TransactionDto;
+import org.financecontrol401.entity.Transaction;
+import org.financecontrol401.repository.TransactionRepository;
+
+// Сервис для добавления и обновления транзакций
 // Сервис для добавления и обновления транзакций
 public class ServiceAddOrUpdate {
     private final TransactionRepository transactionRepository;
@@ -43,4 +50,3 @@ public class ServiceAddOrUpdate {
         // TODO: Реализация валидации
     }
 }
-
