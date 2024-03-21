@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 public class Transaction {
     private int idTransaction=0;
-    private TransactionType type;
+    private org.financecontrol401.entity.TransactionType type;
     private Category category;
     private double amount;
     private String Description;
