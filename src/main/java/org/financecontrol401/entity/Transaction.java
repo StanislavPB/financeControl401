@@ -1,12 +1,12 @@
 package org.financecontrol401.entity;
 
 import java.time.LocalDate;
-
+import org.financecontrol401.entity.TransactionType;
 
 
 public class Transaction {
     private int idTransaction=0;
-    private org.financecontrol401.entity.TransactionType type;
+    private TransactionType type;
     private Category category;
     private double amount;
     private String Description;
