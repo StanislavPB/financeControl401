@@ -5,7 +5,7 @@ import org.financecontrol401.entity.Transaction;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Request {
+public class InputValidation {
 //    // Метод для валидации даты
 //    public static Date validateDate (Date date) throws Exception {
 //        try {

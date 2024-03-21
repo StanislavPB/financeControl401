@@ -1,8 +1,6 @@
 package org.financecontrol401.entity_test;
 
-import org.financecontrol401.Entity.Balance;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+
 
 public class Balance_test {
 

@@ -24,10 +24,10 @@ public class CategoryRepository {
 
 
     public List<Category> getCategoryByType(Integer categoryType) {
-        List<Category> findCategoris = new ArrayList<>();
+        List<Category> findCategories = new ArrayList<>();
         for (Category category : categories) {
             if (category.getCategoryType().equals(categoryType)) {
-                findCategoris.add(category);
+                findCategories.add(category);
 
             }
         }
