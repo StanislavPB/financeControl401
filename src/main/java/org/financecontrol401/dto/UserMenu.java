@@ -2,7 +2,7 @@ package org.financecontrol401.dto;
 
 import java.util.Scanner;
 
-public class usermenu {
+public class UserMenu {
 
     public void showMainMenu(){
         System.out.println( "Добро пожаловать, выбирите пункт меню: ");
