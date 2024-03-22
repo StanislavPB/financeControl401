@@ -1,6 +1,8 @@
 package org.financecontrol401.dto;
 
 public class ClientRequestFind<T> {
+    //--------------------
+
 
     private T findParam;
 

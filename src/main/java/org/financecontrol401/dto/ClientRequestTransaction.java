@@ -14,6 +14,9 @@ public class ClientRequestTransaction {
 
     private LocalDate date;
 
+
+    //---------------------
+
     public ClientRequestTransaction(TransactionType type, Category category,
                                     double amount, String description, LocalDate date) {
         this.type = type;

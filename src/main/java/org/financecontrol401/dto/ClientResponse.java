@@ -2,6 +2,7 @@ package org.financecontrol401.dto;
 
 public class ClientResponse<T> {
 
+    //------------------------------
     private int responseCode;
     // 200 - Ok
     // 400 - error
