@@ -1,42 +1,18 @@
 package org.financecontrol401.dto;
 
-// DTO для запроса поиска от пользователя
-public class ClientRequestFind {
+public class ClientRequestFind<T> {
+    //--------------------
 
-    private String startDate; // Начальная дата
-    private String endDate; // Конечная дата
-    private String category; // Категория
 
-    // Геттеры и сеттеры
-    public String getStartDate() {
-        return startDate;
+    private T findParam;
+
+    public ClientRequestFind(T findParam) {
+        this.findParam = findParam;
     }
 
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
+    public T getFindParam() {
+        return findParam;
     }
 
-    public String getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(String endDate) {
-        this.endDate = endDate;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
-    // Конструктор
-    public ClientRequestFind(String startDate, String endDate, String category) {
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.category = category;
-    }
 
 }
