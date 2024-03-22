@@ -12,7 +12,7 @@ public class PersonalFinanceManager {
                 System.out.println("1. Ввести данные о транзакции");
                 System.out.println("2. Сформировать отчет");
                 System.out.println("3. Запросить баланс");
-                System.out.println("3. Выйти");
+                System.out.println("4. Выйти");
                 int choice = scanner.nextInt();
                 scanner.nextLine(); // consume newline
 
@@ -38,6 +38,7 @@ public class PersonalFinanceManager {
                         System.out.println("Выберите тип отчета:");
                         System.out.println("1. По дате");
                         System.out.println("2. По категории");
+                        System.out.println("3. По сумме");
                         int reportChoice = scanner.nextInt();
                         scanner.nextLine(); // consume newline
                         switch (reportChoice) {
