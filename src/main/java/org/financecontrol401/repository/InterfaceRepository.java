@@ -29,6 +29,10 @@ public interface InterfaceRepository {
         public List<Transaction> findBySumma(Double sum);
         public List<Transaction> findAll();
 
+         List<Transaction> findByPeriodAndCategory(LocalDate startDate, LocalDate endDate
+                , String categoryName);
+
+    public List<Transaction> findByTypeAndPeriod(LocalDate startDate, LocalDate endDate,TransactionType type);
 
     }
 
