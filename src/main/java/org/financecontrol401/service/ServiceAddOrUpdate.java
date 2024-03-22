@@ -20,7 +20,8 @@ public class ServiceAddOrUpdate {
             validateTransaction(transactionDto);
 
             // Преобразование DTO в Entity
-            Transaction transaction = new Transaction();
+            Transaction transaction;
+            transaction = new Transaction();
             transaction.setDate(transactionDto.getDate());
             transaction.setType(transactionDto.getType());
             transaction.setCategory(transactionDto.getCategory());
@@ -34,10 +35,9 @@ public class ServiceAddOrUpdate {
             // Валидация данных
             validateTransaction(transactionDto);
 
-            // Получение транзакции из базы данных
-            Transaction transaction = transactionRepository.findById(id).orElseThrow();
 
             // Обновление данных транзакции
+            Transaction transaction = new Transaction();
             transaction.setDate(transactionDto.getDate());
             transaction.setType(transactionDto.getType());
             transaction.setCategory(transactionDto.getCategory());

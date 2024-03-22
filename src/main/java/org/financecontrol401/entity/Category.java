@@ -1,27 +1,31 @@
 package org.financecontrol401.entity;
-
+// Сущность "Категория"
 public class Category {
-    String categoryName;
-   Integer categoryType;
 
-    public Category(String categoryName, Integer categoryType) {
-        this.categoryName = categoryName;
-        this.categoryType = categoryType;
+    private int id; // ID
+    private String name; // Название
+
+    // Геттеры и сеттеры
+    public int getId() {
+        return id;
     }
 
-    public String getCategoryName() {
-        return categoryName;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public Integer getCategoryType() {
-        return categoryType;
+    public String getName() {
+        return name;
     }
 
-    @Override
-    public String toString() {
-        return "Category{" +
-                "categoryName='" + categoryName + '\'' +
-                ", categoryType=" + categoryType +
-                '}';
+    public void setName(String name) {
+        this.name = name;
     }
+
+    // Конструктор
+    public Category(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
 }

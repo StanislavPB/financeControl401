@@ -26,6 +26,6 @@ public class ServiceFind {
     }
 
     public List<Transaction> findByDateAndCategory(String date, String category) {
-        return transactionRepository.findByDateAndCategory(date, category);
+        return transactionRepository.findByCategory(date, category);
     }
 }

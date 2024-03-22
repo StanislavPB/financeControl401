@@ -108,5 +108,8 @@ public class TransactionRepository  implements InterfaceRepository {
         public List<Transaction> findAll() {
             return transactions;
         }
+
+    public ScopedValue findById(Long id) {
     }
+}
 
