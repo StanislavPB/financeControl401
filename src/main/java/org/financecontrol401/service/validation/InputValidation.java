@@ -16,11 +16,14 @@ public class InputValidation {
         }
 
 
+        if (transaction.getDate() == null) {
+            errorMessages.add("Вы не указали дату");
+        }
+
 
         if (transaction.getCategory().equals("")) {
             errorMessages.add("Вы не указали категорию");
         }
-
         return errorMessages;
     }
 }

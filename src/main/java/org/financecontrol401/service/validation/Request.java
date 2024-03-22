@@ -1,25 +1,28 @@
 package org.financecontrol401.service.validation;
 
 import org.financecontrol401.entity.Category;
+import org.financecontrol401.entity.TransactionType;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 
 public class Request {
     // Метод для валидации типа операции
-    public static void validateType(Integer type) throws Exception {
-        if (type == null) {
-            throw new Exception("Вы не указали тип операции");
-        }
-
+    public static void validateTransactionType(TransactionType type) throws Exception {
         try {
-            if (type >= 3) {
-                throw new Exception("Тип операции указан неверно");
+            if (type == null) {
+                throw new Exception("Вы не указали тип операции");
+            }
+
+            // Проверяем, что тип операции является INCOME или EXPENSE
+            if (type != TransactionType.INCOME && type != TransactionType.EXPENSE) {
+                throw new Exception("Тип операции должен быть либо INCOME, либо EXPENSE");
             }
         } catch (Exception e) {
             throw new Exception("Произошла ошибка при валидации типа операции: " + e.getMessage());
         }
     }
+
     // Метод для валидации даты
     public static LocalDate validateDate(LocalDate date) throws Exception {
         try {
