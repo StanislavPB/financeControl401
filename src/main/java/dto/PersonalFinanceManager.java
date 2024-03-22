@@ -1,13 +1,9 @@
-package usermenu;
+package dto;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-public class usermenu {
-
-    public class PersonalFinanceManager {
-        public void userMenu(String[] args) {
+public class PersonalFinanceManager {
+        public void userMenu() {
             Scanner scanner = new Scanner(System.in);
             TransactionManager transactionManager = new TransactionManager();
 
@@ -15,6 +11,7 @@ public class usermenu {
                 System.out.println("Выберите действие:");
                 System.out.println("1. Ввести данные о транзакции");
                 System.out.println("2. Сформировать отчет");
+                System.out.println("3. Запросить баланс");
                 System.out.println("3. Выйти");
                 int choice = scanner.nextInt();
                 scanner.nextLine(); // consume newline
@@ -26,9 +23,14 @@ public class usermenu {
                         System.out.println("Введите сумму:");
                         double amount = scanner.nextDouble();
                         scanner.nextLine(); // consume newline
-                        System.out.println("Введите категорию:");
+                        System.out.println("Выберите категорию:");
+                        if (type.equalsIgnoreCase("доход")) {
+                            displayIncomeCategories();
+                        } else if (type.equalsIgnoreCase("расход")) {
+                            displayExpenseCategories();
+                        }
                         String category = scanner.nextLine();
-                        System.out.println("Введите дату (гггг-мм-дд):");
+                        System.out.println("Введите дату (дд-мм-гггг):");
                         String date = scanner.nextLine();
                         transactionManager.addTransaction(new Transaction(type, amount, category, date));
                         break;
@@ -40,7 +42,7 @@ public class usermenu {
                         scanner.nextLine(); // consume newline
                         switch (reportChoice) {
                             case 1:
-                                System.out.println("Введите дату для отчета (гггг-мм-дд):");
+                                System.out.println("Введите дату для отчета (дд-мм-гггг):");
                                 String reportDate = scanner.nextLine();
                                 transactionManager.generateReportByDate(reportDate);
                                 break;
@@ -54,7 +56,10 @@ public class usermenu {
                                 break;
                         }
                         break;
-                    case 3:
+//                    case 3:
+//                        transactionManager.showBalance();
+//                        break;
+                    case 4:
                         System.out.println("Программа завершена.");
                         System.exit(0);
                         break;
@@ -64,68 +69,25 @@ public class usermenu {
                 }
             }
         }
+
+    // Метод для отображения категорий расходов
+    private static void displayExpenseCategories() {
+        System.out.println("Выберите категорию:");
+        System.out.println("1. Продукты");
+        System.out.println("2. Одежда");
+        System.out.println("3. Комуналка");
+        System.out.println("4. Аренда");
+        System.out.println("5. Транспорт");
+        System.out.println("6. Досуг");
+        System.out.println("7. Здоровье");
     }
 
-    class Transaction {
-        private String type;
-        private double amount;
-        private String category;
-        private String date;
-
-        public Transaction(String type, double amount, String category, String date) {
-            this.type = type;
-            this.amount = amount;
-            this.category = category;
-            this.date = date;
-        }
-
-        public String getType() {
-            return type;
-        }
-
-        public double getAmount() {
-            return amount;
-        }
-
-        public String getCategory() {
-            return category;
-        }
-
-        public String getDate() {
-            return date;
-        }
-    }
-
-    class TransactionManager {
-        private List<Transaction> transactions;
-
-        public TransactionManager() {
-            this.transactions = new ArrayList<>();
-        }
-
-        public void addTransaction(Transaction transaction) {
-            transactions.add(transaction);
-            System.out.println("Транзакция добавлена успешно.");
-        }
-
-        public void generateReportByDate(String reportDate) {
-            System.out.println("Отчет по дате " + reportDate + ":");
-            for (Transaction transaction : transactions) {
-                if (transaction.getDate().equals(reportDate)) {
-                    System.out.println("Тип: " + transaction.getType() + ", Сумма: " + transaction.getAmount() +
-                            ", Категория: " + transaction.getCategory());
-                }
-            }
-        }
-
-        public void generateReportByCategory(String reportCategory) {
-            System.out.println("Отчет по категории " + reportCategory + ":");
-            for (Transaction transaction : transactions) {
-                if (transaction.getCategory().equalsIgnoreCase(reportCategory)) {
-                    System.out.println("Тип: " + transaction.getType() + ", Сумма: " + transaction.getAmount() +
-                            ", Дата: " + transaction.getDate());
-                }
-            }
-        }
+    // Метод для отображения категорий доходов
+    private static void displayIncomeCategories() {
+        System.out.println("Выберите категорию:");
+        System.out.println("1. Зарплата");
+        System.out.println("2. Депозиты");
+        System.out.println("3. Дополнительный доход");
     }
 }
+
