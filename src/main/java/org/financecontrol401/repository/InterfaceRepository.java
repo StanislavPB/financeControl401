@@ -30,6 +30,7 @@ public interface InterfaceRepository {
         public List<Transaction> findAll();
 
 
-    }
+    void save(Transaction transaction);
+}
 
 

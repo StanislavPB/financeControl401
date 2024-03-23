@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 
-public class TransactionRepository  implements InterfaceRepository {
+public abstract class TransactionRepository  implements InterfaceRepository {
 
     private List<Transaction> transactions;
     private Balance balance;
