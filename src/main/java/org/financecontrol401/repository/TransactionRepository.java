@@ -104,12 +104,5 @@ public class TransactionRepository  implements InterfaceRepository {
 
 
 
-        @Override
-        public List<Transaction> findAll() {
-            return transactions;
-        }
-
-    public ScopedValue findById(Long id) {
-    }
 }
 
