@@ -6,9 +6,7 @@ import org.financecontrol401.repository.TransactionRepository;
 
 public class ServiceAddOrUpdate {
 
-    // Сервис для добавления и обновления транзакций
-// Сервис для добавления и обновления транзакций
-    public class ServiceAddOrUpdate {
+        // Сервис для добавления и обновления транзакций
         private final TransactionRepository transactionRepository;
 
         public ServiceAddOrUpdate(TransactionRepository transactionRepository) {
