@@ -1,7 +1,7 @@
-package org.financecontrol401.repository;
+package org.financecontrol401.vtarlovsky.repository;
 
 
-import org.financecontrol401.entity.Category;
+import entity.Category;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +44,14 @@ public class CategoryRepository {
         }
         return Optional.empty();
     }
+
+    public List<Category> findAll() {
+        return categories;
+    }
+
+
+
+
 }
 
 
