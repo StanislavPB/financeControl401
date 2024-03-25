@@ -1,13 +1,9 @@
 package org.financecontrol401.repository;
 
-import org.financecontrol401.entity.Transaction;
-import org.financecontrol401.entity.Category;
-import org.financecontrol401.entity.Balance;
-import org.financecontrol401.entity.TransactionType;
-
+import entity.Transaction;
+import entity.TransactionType;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 public interface InterfaceRepository {

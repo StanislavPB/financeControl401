@@ -1,7 +1,7 @@
 package org.financecontrol401.dto;
 
-import org.financecontrol401.entity.Category;
-import org.financecontrol401.entity.TransactionType;
+import entity.Category;
+import entity.TransactionType;
 
 import java.time.LocalDate;
 

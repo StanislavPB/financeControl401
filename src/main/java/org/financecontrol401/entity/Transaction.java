@@ -2,68 +2,64 @@ package org.financecontrol401.entity;
 
 import java.time.LocalDate;
 
-
 public class Transaction {
+    private int idTransaction=0;
+    private TransactionType type;
+    private Category category;
+    private double amount;
+    private String Description;
 
-    private int id; // ID
-    private String type; // Тип операции (доход/расход)
-    private Category category; // Категория
-    private String date; // Дата
-    private double amount; // Сумма
+    private LocalDate date;
 
-    public Transaction() {
-
-    }
-
-    // Геттеры и сеттеры
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
+    public Transaction(TransactionType type, Category category, double amount, String description,
+                       LocalDate date) {
         this.type = type;
+        this.category = category;
+        this.amount = amount;
+        Description = description;
+        this.date = date;
+    }
+
+    public int getIdTransaction() {
+        return idTransaction;
+    }
+
+    public TransactionType getType() {
+        return type;
     }
 
     public Category getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
     public double getAmount() {
         return amount;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public String getDescription() {
+        return Description;
     }
 
-    // Конструктор
-    public Transaction(int id, String type, Category category, String date, double amount) {
-        this.id = id;
-        this.type = type;
-        this.category = category;
-        this.date = date;
-        this.amount = amount;
+    public LocalDate getDate() {
+        return date;
     }
 
+    public void setIdTransaction(int idTransaction) {
+        this.idTransaction = idTransaction;
+    }
 
+    @Override
+    public String toString() {
+        return "Transaction{" +
+                "idTransaction=" + idTransaction +
+                ", type=" + type +
+                ", category=" + category +
+                ", amount=" + amount +
+                ", Description='" + Description + '\'' +
+                ", date=" + date +
+                '}';
+    }
 }
+
+
+
