@@ -1,13 +1,14 @@
 package org.financecontrol401.repository;
 
 
-import org.financecontrol401.entity.Category;
+import entity.Category;
+import entity.TransactionType;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class CategoryRepository {
+public class  CategoryRepository {
     private List<Category> categories;
 
     public CategoryRepository() {
@@ -22,7 +23,7 @@ public class CategoryRepository {
         return categories;
     }
 
-
+    /*
     public List<Category> getCategoryByType(Integer categoryType) {
         List<Category> findCategories = new ArrayList<>();
         for (Category category : categories) {
@@ -33,6 +34,17 @@ public class CategoryRepository {
         }
         return findCategories;
     }
+*/
+    public List<Category> findByType(TransactionType type) {
+        List<Category> findCategories = new ArrayList<>();
+        for (Category category   : categories) {
+            if (category.getCategoryType() == type) {
+                findCategories.add(category);
+            }
+        }
+        return findCategories;
+    }
+
 
 
     public Optional<Category> findByCategory(String categoryName) {
@@ -44,6 +56,14 @@ public class CategoryRepository {
         }
         return Optional.empty();
     }
+
+    public List<Category> findAll() {
+        return categories;
+    }
+
+
+
+
 }
 
 

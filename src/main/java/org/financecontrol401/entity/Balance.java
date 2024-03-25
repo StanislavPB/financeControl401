@@ -1,31 +1,24 @@
 package org.financecontrol401.entity;
 
 public class Balance {
+   private Double Summa;
 
-    private int id; // ID
-    private double amount; // Сумма
-
-    // Геттеры и сеттеры
-    public int getId() {
-        return id;
+    public Balance(Double summa) {
+        Summa = summa;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public Double getSumma() {
+        return Summa;
     }
 
-    public double getAmount() {
-        return amount;
+    public void setSumma(Double summa) {
+        Summa = summa;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    @Override
+    public String toString() {
+        return "Balance{" +
+                "Summa=" + Summa +
+                '}';
     }
-
-    // Конструктор
-    public Balance(int id, double amount) {
-        this.id = id;
-        this.amount = amount;
-    }
-
 }

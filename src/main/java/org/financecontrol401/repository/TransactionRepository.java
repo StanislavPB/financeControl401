@@ -1,32 +1,31 @@
 package org.financecontrol401.repository;
-import org.financecontrol401.entity.Balance;
-import org.financecontrol401.entity.Transaction;
-import org.financecontrol401.entity.Category;
-import org.financecontrol401.entity.TransactionType;
 
-import java.util.ArrayList;
+import entity.Transaction;
+import entity.TransactionType;
+
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 
-public abstract class TransactionRepository  implements InterfaceRepository {
+public class TransactionRepository {
+        //implements InterfaceRepository {
 
     private List<Transaction> transactions;
-    private Balance balance;
+    //private Balance balance;
     private int id = 0;
 
     public TransactionRepository(Double initialBalance) {
         this.transactions = new ArrayList<>();
-        this.balance = new Balance(initialBalance);
+      //  this.balance = new Balance(initialBalance);
         this.id = 0;
     }
 
-    @Override
     public boolean add(Transaction newTransaction) {
         if (newTransaction != null) {
             newTransaction.setIdTransaction(++id);
             transactions.add(newTransaction);
-            updateBalance(newTransaction);
+           // updateBalance(newTransaction);
 
             return true;
         }
@@ -34,6 +33,7 @@ public abstract class TransactionRepository  implements InterfaceRepository {
 
     }
 
+    /*
     private void updateBalance(Transaction transaction) {
         if (transaction.getType() == TransactionType.INCOME) {
             balance.setSumma(balance.getSumma() + transaction.getAmount());
@@ -42,7 +42,9 @@ public abstract class TransactionRepository  implements InterfaceRepository {
         }
     }
 
-    @Override
+     */
+
+
     public List<Transaction> findByDate(LocalDate date) {
         List<Transaction> result = new ArrayList<>();
         for (Transaction transaction : transactions) {
@@ -53,7 +55,7 @@ public abstract class TransactionRepository  implements InterfaceRepository {
         return result;
     }
 
-    @Override
+
     public List<Transaction> findByPeriod(LocalDate startDate, LocalDate endDate) {
         List<Transaction> transactionsForPeriod = new ArrayList<>();
         for (Transaction transaction : transactions) {
@@ -66,7 +68,7 @@ public abstract class TransactionRepository  implements InterfaceRepository {
         return transactionsForPeriod;
     }
 
-    @Override
+
     public List<Transaction> findByCategory(String categoryName) {
 
         List<Transaction> findeList = new ArrayList<>();
@@ -79,7 +81,7 @@ public abstract class TransactionRepository  implements InterfaceRepository {
     }
 
 
-    @Override
+
     public List<Transaction> findByType(TransactionType type) {
         List<Transaction> foundList = new ArrayList<>();
         for (Transaction transaction : transactions) {
@@ -98,11 +100,49 @@ public abstract class TransactionRepository  implements InterfaceRepository {
                 findeList.add(transaction);
             }
         }
-        return findeList;
+            return findeList;
 
+        }
+
+
+
+        public List<Transaction> findAll() {
+            return transactions;
+        }
+
+
+    public List<Transaction> findByPeriodAndCategory(LocalDate startDate, LocalDate endDate
+            , String categoryName) {
+        List<Transaction> transactionsForPeriodAndCategory = new ArrayList<>();
+        for (Transaction transaction : transactions) {
+            LocalDate transactionDate = transaction.getDate();
+            String transactionCategory = transaction.getCategory().getCategoryName();
+            if (transactionDate.compareTo(startDate) >= 0
+                    && transactionDate.compareTo(endDate) <= 0
+                    && transactionCategory.equals(categoryName)) {
+                transactionsForPeriodAndCategory.add(transaction);
+            }
+        }
+        return transactionsForPeriodAndCategory;
     }
 
 
+    public List<Transaction> findByTypeAndPeriod(LocalDate startDate, LocalDate endDate,
+                                                    TransactionType type) {
+        List<Transaction> transactionsForTypeAndPeriod = new ArrayList<>();
+        for (Transaction transaction : transactions) {
+            LocalDate transactionDate = transaction.getDate();
+            if (transaction.getType() == type
+                    && transactionDate.compareTo(startDate) >= 0
+                    && transactionDate.compareTo(endDate) <= 0) {
+                transactionsForTypeAndPeriod.add(transaction);
+            }
+        }
+        return transactionsForTypeAndPeriod;
+    }
+
 
 }
+
+
 
