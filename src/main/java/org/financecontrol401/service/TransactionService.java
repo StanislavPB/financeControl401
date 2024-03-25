@@ -1,10 +1,10 @@
 package org.financecontrol401.service;
 
-import dto.ClientRequestTransaction;
-import entity.Category;
-import entity.Transaction;
-import entity.TransactionType;
-import repository.TransactionRepository;
+import org.financecontrol401.dto.ClientRequestTransaction;
+import org.financecontrol401.entity.Category;
+import org.financecontrol401.entity.Transaction;
+import org.financecontrol401.entity.TransactionType;
+import org.financecontrol401.repository.TransactionRepository;
 
 import java.io.*;
 import java.time.LocalDate;

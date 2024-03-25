@@ -1,8 +1,8 @@
 package org.financecontrol401.service;
 
-import entity.Category;
-import entity.TransactionType;
-import repository.CategoryRepository;
+import org.financecontrol401.entity.Category;
+import org.financecontrol401.entity.TransactionType;
+import org.financecontrol401.repository.CategoryRepository;
 
 import java.io.*;
 import java.util.List;

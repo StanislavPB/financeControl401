@@ -1,7 +1,7 @@
 package org.financecontrol401.dto;
 // DTO для запроса от пользователя
 public class ClientRequest {
-
+//--------------------
     private String type; // Тип операции (доход/расход)
     private String category; // Категория операции
     private String date; // Дата операции

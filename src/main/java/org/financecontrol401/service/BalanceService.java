@@ -4,6 +4,7 @@ package org.financecontrol401.service;
 import java.io.*;
 
 public class BalanceService {
+    //-------------------
     private static final String BALANCE_FILE_PATH = "balance.txt";
     private static double balance = 0.0;
 
