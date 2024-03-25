@@ -1,6 +1,7 @@
 package org.financecontrol401.dto;
 
 public class ClientRequestCategory {
+    /*
     String categoryName;
     Integer categoryType;
 //-/////////****************
@@ -16,4 +17,6 @@ public class ClientRequestCategory {
     public Integer getCategoryType() {
         return categoryType;
     }
+    */
+
 }
