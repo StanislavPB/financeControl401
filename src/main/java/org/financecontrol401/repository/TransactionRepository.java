@@ -16,6 +16,7 @@ public class TransactionRepository {
     private int id = 0;
 
     public TransactionRepository() {
+        //----------------
         this.transactions = new ArrayList<>();
 
         this.id = 0;
