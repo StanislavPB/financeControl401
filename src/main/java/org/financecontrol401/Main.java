@@ -1,8 +1,12 @@
 package org.financecontrol401;
 
-import repository.CategoryRepository;
-import service.CategoryService;
-import service.Menu;
+import org.financecontrol401.repository.CategoryRepository;
+import org.financecontrol401.repository.TransactionRepository;
+import org.financecontrol401.service.BalanceService;
+import org.financecontrol401.service.CategoryService;
+
+import org.financecontrol401.service.Menu;
+import org.financecontrol401.service.TransactionService;
 
 import java.io.IOException;
 
@@ -10,10 +14,26 @@ public class Main {
     public static void main(String[] args) {
 
 
-        CategoryRepository categoryRepository = new CategoryRepository();
+
         try {
+            CategoryRepository categoryRepository = new CategoryRepository();
+            TransactionRepository transactionRepository=new TransactionRepository();
+
             CategoryService categoryservice = new
                     CategoryService(categoryRepository, "D:\\TXT\\category.txt");
+
+            BalanceService balanceService=new BalanceService();
+
+            TransactionService transactionService=new
+                    TransactionService( transactionRepository,
+                    balanceService, "D:\\TXT\\transaction.txt");
+
+
+
+
+
+
+
             Menu menu = new Menu(categoryservice);
 
             menu.displayMainMenu();
