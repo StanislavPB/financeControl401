@@ -34,8 +34,8 @@ class CategoryRepositoryTest {
     @Test
     void findByType() {
         // Создаем несколько категорий с разными типами
-        Category category1 = new Category("Категория 1", TransactionType.INCOME);
-        Category category2 = new Category("Категория 2", TransactionType.EXPENSE);
+        Category category1 = new Category("1", TransactionType.INCOME);
+        Category category2 = new Category("2", TransactionType.EXPENSE);
         categoryRepository.addCategory(category1);
         categoryRepository.addCategory(category2);
 
@@ -65,8 +65,8 @@ class CategoryRepositoryTest {
     @Test
     void findAll() {
         // Создаем несколько категорий и добавляем их в репозиторий
-        Category category1 = new Category("Категория 1", TransactionType.INCOME);
-        Category category2 = new Category("Категория 2", TransactionType.EXPENSE);
+        Category category1 = new Category("1", TransactionType.INCOME);
+        Category category2 = new Category("2", TransactionType.EXPENSE);
         categoryRepository.addCategory(category1);
         categoryRepository.addCategory(category2);
 
