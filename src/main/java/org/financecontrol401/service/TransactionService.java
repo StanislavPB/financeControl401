@@ -1,13 +1,14 @@
 package org.financecontrol401.service;
 
-import dto.ClientRequestTransaction;
-import entity.Category;
-import entity.Transaction;
-import entity.TransactionType;
-import repository.TransactionRepository;
+import org.financecontrol401.dto.ClientRequestTransaction;
+import org.financecontrol401.entity.Category;
+import org.financecontrol401.entity.Transaction;
+import org.financecontrol401.entity.TransactionType;
+import org.financecontrol401.repository.TransactionRepository;
 
 import java.io.*;
 import java.time.LocalDate;
+
 
 public class TransactionService {
     private final TransactionRepository transactionRepository;
@@ -35,7 +36,7 @@ public class TransactionService {
                     TransactionType type;
                     if (typeString.equals("1")) {
                         type = TransactionType.INCOME;
-                                      } else if (typeString.equals("2")) {
+                    } else if (typeString.equals("2")) {
                         type = TransactionType.EXPENSE;
                     } else {
                         // Обработка ошибки при неверном значении типа транзакции

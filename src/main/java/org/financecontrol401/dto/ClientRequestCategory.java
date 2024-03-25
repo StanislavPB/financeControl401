@@ -1,10 +1,12 @@
 package org.financecontrol401.dto;
+import org.financecontrol401.entity.Category;
+import org.financecontrol401.entity.TransactionType;
 
 public class ClientRequestCategory {
     String categoryName;
-    Integer categoryType;
+    TransactionType categoryType;
 //------------
-    public ClientRequestCategory(String categoryName, Integer categoryType) {
+    public ClientRequestCategory(String categoryName, TransactionType  categoryType) {
         this.categoryName = categoryName;
         this.categoryType = categoryType;
     }
@@ -13,7 +15,7 @@ public class ClientRequestCategory {
         return categoryName;
     }
 
-    public Integer getCategoryType() {
+    public TransactionType  getCategoryType() {
         return categoryType;
     }
 }
