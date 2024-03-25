@@ -1,4 +1,5 @@
 package org.financecontrol401.repository;
+
 import org.financecontrol401.entity.Balance;
 import org.financecontrol401.entity.Transaction;
 import org.financecontrol401.entity.Category;
@@ -53,7 +54,6 @@ public abstract class TransactionRepository  implements InterfaceRepository {
         return result;
     }
 
-    @Override
     public List<Transaction> findByPeriod(LocalDate startDate, LocalDate endDate) {
         List<Transaction> transactionsForPeriod = new ArrayList<>();
         for (Transaction transaction : transactions) {
