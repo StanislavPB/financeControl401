@@ -20,13 +20,18 @@ public class Main {
             TransactionRepository transactionRepository=new TransactionRepository();
 
             CategoryService categoryservice = new
-                    CategoryService(categoryRepository, "D:\\TXT\\category.txt");
+                    CategoryService(categoryRepository, "src/main/resources/category.txt");
 
             BalanceService balanceService=new BalanceService();
 
             TransactionService transactionService=new
                     TransactionService( transactionRepository,
-                    balanceService, "D:\\TXT\\transaction.txt");
+                    balanceService, "src/main/resources/transaction.txt");
+
+
+
+
+
 
 
 
@@ -41,6 +46,8 @@ public class Main {
 
             menu.displayCategoryMenu(operationType);
             int categoryChoice = menu.getUserChoice();
+
+
 
         } catch (IOException e) {
             e.printStackTrace(); // Обработка ошибок записи в файл
