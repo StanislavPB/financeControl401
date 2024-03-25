@@ -8,37 +8,29 @@ import java.time.LocalDate;
 
 public class Request {
     // Метод для валидации типа операции
-    public static void validateTransactionType(TransactionType type) throws java.lang.Exception {
-        try {
-            if (type == null) {
-                throw new java.lang.Exception("Вы не указали тип операции");
-            }
+    public static void validateTransactionType(TransactionType type) throws InvalidTransactionTypeException {
+        if (type == null) {
+            throw new InvalidTransactionTypeException("Вы не указали тип операции");
+        }
 
-            // Проверяем, что тип операции является INCOME или EXPENSE
-            if (type != TransactionType.INCOME && type != TransactionType.EXPENSE) {
-                throw new java.lang.Exception("Тип операции должен быть либо INCOME, либо EXPENSE");
-            }
-        } catch (java.lang.Exception e) {
-            throw new java.lang.Exception("Произошла ошибка при валидации типа операции: " + e.getMessage());
+        // Проверяем, что тип операции является INCOME или EXPENSE
+        if (!type.equals(TransactionType.INCOME) && !type.equals(TransactionType.EXPENSE)) {
+            throw new InvalidTransactionTypeException("Тип операции должен быть либо INCOME, либо EXPENSE");
         }
     }
-
     // Метод для валидации даты
-    public static LocalDate validateDate(LocalDate date) throws java.lang.Exception {
+    public static LocalDate validateDate(String date) throws InvalidDateFormatException {
         try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            dateFormat.setLenient(false);
-            dateFormat.format(date); // Проверяем, соответствует ли дата заданному формату
-            return date;
-        } catch (java.lang.Exception e) {
-            throw new java.lang.Exception("Некорректный формат даты. Пожалуйста, используйте формат гггг-мм-дд.");
+            return LocalDate.parse(date);
+        } catch (java.time.format.DateTimeParseException e) {
+            throw new InvalidDateFormatException("Некорректный формат даты. Пожалуйста, используйте формат гггг-мм-дд.");
         }
     }
 
     // Метод для валидации категории
-    public static void validateCategory(Category category) throws java.lang.Exception {
+    public static void validateCategory(Category category) throws InvalidCategoryException {
         if (category == null) {
-            throw new java.lang.Exception("Вы не указали категорию");
+            throw new InvalidCategoryException("Вы не указали категорию");
         }
     }
 }
