@@ -1,20 +1,14 @@
 package org.financecontrol401.service;
 
-import entity.Category;
-import entity.TransactionType;
+import org.financecontrol401.entity.Category;
+import org.financecontrol401.entity.TransactionType;
 
 import java.util.List;
 import java.util.Scanner;
 
 public class Menu {
 
-    /*
-    private final CategoryRepository categoryRepository;
 
-    public Menu(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
-    }
-*/
     private final CategoryService categoryService;
 
     public Menu(CategoryService categoryService) {
