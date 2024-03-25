@@ -1,7 +1,7 @@
 package org.financecontrol401.repository;
 
-import entity.Transaction;
-import entity.TransactionType;
+import org.financecontrol401.entity.Transaction;
+import org.financecontrol401.entity.TransactionType;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

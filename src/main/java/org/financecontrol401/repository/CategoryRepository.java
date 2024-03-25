@@ -1,8 +1,8 @@
 package org.financecontrol401.repository;
 
 
-import entity.Category;
-import entity.TransactionType;
+import org.financecontrol401.entity.Category;
+import org.financecontrol401.entity.TransactionType;
 
 import java.util.ArrayList;
 import java.util.List;
