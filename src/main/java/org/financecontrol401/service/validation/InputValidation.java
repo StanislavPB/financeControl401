@@ -1,4 +1,4 @@
-package progectChernovik.validation;
+package org.financecontrol401.service.validation;
 
 import org.financecontrol401.entity.Transaction;
 
