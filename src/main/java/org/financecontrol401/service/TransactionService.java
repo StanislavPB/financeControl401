@@ -5,9 +5,14 @@ import org.financecontrol401.entity.Category;
 import org.financecontrol401.entity.Transaction;
 import org.financecontrol401.entity.TransactionType;
 import org.financecontrol401.repository.TransactionRepository;
+import org.financecontrol401.service.validation.InvalidCategoryException;
+import org.financecontrol401.service.validation.InvalidDateFormatException;
+import org.financecontrol401.service.validation.InvalidTransactionTypeException;
 
 import java.io.*;
 import java.time.LocalDate;
+
+import static org.financecontrol401.service.validation.Request.*;
 
 
 public class TransactionService {
@@ -75,6 +80,15 @@ public class TransactionService {
     }
 
     public void addTransaction(ClientRequestTransaction requestTransaction) {
+        try {
+            validateTransactionType(requestTransaction.getType());
+            validateCategory(requestTransaction.getCategory());
+            validateDate(requestTransaction.getDate().toString());
+        } catch (InvalidTransactionTypeException | InvalidCategoryException | InvalidDateFormatException e) {
+            // Обработка ошибок валидации
+            e.printStackTrace();
+            return; // Выход из метода, если данные не прошли валидацию
+        }
         Transaction transaction = mapToTransaction(requestTransaction);
         transactionRepository.add(transaction);
         updateBalance(transaction);
