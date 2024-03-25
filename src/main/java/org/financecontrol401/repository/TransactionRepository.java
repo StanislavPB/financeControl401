@@ -15,7 +15,7 @@ public class TransactionRepository {
     //private Balance balance;
     private int id = 0;
 
-    public TransactionRepository(Double initialBalance) {
+    public TransactionRepository() {
         this.transactions = new ArrayList<>();
       //  this.balance = new Balance(initialBalance);
         this.id = 0;

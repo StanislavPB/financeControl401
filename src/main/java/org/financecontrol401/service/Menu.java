@@ -8,13 +8,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-    /*
-    private final CategoryRepository categoryRepository;
 
-    public Menu(CategoryRepository categoryRepository) {
-        this.categoryRepository = categoryRepository;
-    }
-*/
     private final CategoryService categoryService;
 
     public Menu(CategoryService categoryService) {
