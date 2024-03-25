@@ -8,7 +8,7 @@ public class Category {
         this.categoryName = categoryName;
         this.categoryType = categoryType;
     }
-
+//-----------------------------------
     public String getCategoryName() {
         return categoryName;
     }
