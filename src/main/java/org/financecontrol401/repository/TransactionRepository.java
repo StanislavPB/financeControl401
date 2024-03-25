@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 
-public class TransactionRepository  implements InterfaceRepository {
+public abstract class TransactionRepository  implements InterfaceRepository {
 
     private List<Transaction> transactions;
     private Balance balance;
@@ -98,55 +98,11 @@ public class TransactionRepository  implements InterfaceRepository {
                 findeList.add(transaction);
             }
         }
-            return findeList;
-
-        }
-
-
-
-        @Override
-        public List<Transaction> findAll() {
-            return transactions;
-        }
-
-
-    @Override
-    public List<Transaction> findByPeriodAndCategory(LocalDate startDate, LocalDate endDate
-            , String categoryName) {
-        List<Transaction> transactionsForPeriodAndCategory = new ArrayList<>();
-        for (Transaction transaction : transactions) {
-            LocalDate transactionDate = transaction.getDate();
-            String transactionCategory = transaction.getCategory().getCategoryName();
-            if (transactionDate.compareTo(startDate) >= 0
-                    && transactionDate.compareTo(endDate) <= 0
-                    && transactionCategory.equals(categoryName)) {
-                transactionsForPeriodAndCategory.add(transaction);
-            }
-        }
-        return transactionsForPeriodAndCategory;
-    }
-
-    @Override
-    public List<Transaction> findByTypeAndPeriod(LocalDate startDate, LocalDate endDate,
-                                                    TransactionType type) {
-        List<Transaction> transactionsForTypeAndPeriod = new ArrayList<>();
-        for (Transaction transaction : transactions) {
-            LocalDate transactionDate = transaction.getDate();
-            if (transaction.getType() == type
-                    && transactionDate.compareTo(startDate) >= 0
-                    && transactionDate.compareTo(endDate) <= 0) {
-                transactionsForTypeAndPeriod.add(transaction);
-            }
-        }
-        return transactionsForTypeAndPeriod;
-    }
-
-
-
-
-
+        return findeList;
 
     }
 
 
+
+}
 
