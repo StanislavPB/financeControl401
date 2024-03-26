@@ -89,6 +89,16 @@ public class TransactionService {
             e.printStackTrace();
             return; // Выход из метода, если данные не прошли валидацию
         }
+
+        double currentBalance = balanceService.getBalance(); // Получаем текущий баланс
+        double transactionAmount = requestTransaction.getAmount();
+
+        // Проверяем, достаточно ли средств для проведения операции
+        if (requestTransaction.getType() == TransactionType.EXPENSE && currentBalance < transactionAmount) {
+            System.out.println("Недостаточно средств для выполнения операции.");
+            return;
+        }
+
         Transaction transaction = mapToTransaction(requestTransaction);
         transactionRepository.add(transaction);
         updateBalance(transaction);
