@@ -137,6 +137,7 @@ public class TransactionRepository {
                     && transactionDate.compareTo(startDate) >= 0
                     && transactionDate.compareTo(endDate) <= 0) {
                 transactionsForTypeAndPeriod.add(transaction);
+
             }
         }
         return transactionsForTypeAndPeriod;
