@@ -1,53 +1,58 @@
 package org.financecontrol401.service;
 
-import org.financecontrol401.entity.Category;
-import org.financecontrol401.entity.TransactionType;
-
-import java.util.List;
+import org.financecontrol401.dto.ClientRequestTransaction;
+import org.financecontrol401.entity.Transaction;
+import org.financecontrol401.ui.InputReader;
 import java.util.Scanner;
+import java.util.List;
 
 public class Menu {
+    private final TransactionService transactionService;
+    private final FindService findService;
 
-
-    private final CategoryService categoryService;
-
-    public Menu(CategoryService categoryService) {
-        this.categoryService = categoryService;
+    public Menu(TransactionService transactionService, FindService findService) {
+        this.transactionService = transactionService;
+        this.findService = findService;
     }
-
-
-
 
     public void displayMainMenu() {
-        System.out.println("Выберите тип операции:");
-        System.out.println("1. Приход");
-        System.out.println("2. Расход");
+        System.out.println("Выберите действие:");
+        System.out.println("1. Ввод новой операции");
+        System.out.println("2. Вывод списка операций");
+        System.out.println("0. Выход");
     }
 
-    public void displayCategoryMenu(int operation) {
-    TransactionType operationType = null;
-    if (operation == 1) {
-        operationType = TransactionType.INCOME;
-    } else if (operation == 2) {
-        operationType = TransactionType.EXPENSE;
-    }
-
-    if (operationType != null) {
-        List<Category> categories = categoryService.findByType(operationType);
-        System.out.println("Выберите категорию:");
-        for (int i = 0; i < categories.size(); i++) {
-            System.out.println((i + 1) + ". " + categories.get(i).getCategoryName());
-        }
-    } else {
-        System.out.println("Ошибка: неверный тип операции.");
-    }
-}
-
-    public int getUserChoice() {
+    public void processUserChoice() {
         Scanner scanner = new Scanner(System.in);
-        return scanner.nextInt();
+        while (true) {
+            displayMainMenu();
+            int choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    addNewTransaction();
+                    break;
+                case 2:
+                    displayTransactions();
+                    break;
+                case 0:
+                    System.out.println("Выход из программы.");
+                    return;
+                default:
+                    System.out.println("Неверный выбор. Попробуйте снова.");
+            }
+        }
     }
 
+    private void addNewTransaction() {
+        ClientRequestTransaction requestTransaction = InputReader.readTransaction();
+        transactionService.addTransaction(requestTransaction);
+    }
 
+    private void displayTransactions() {
+        List<Transaction> transactionList = findService.findAll();
+        for (Transaction transaction : transactionList) {
+            System.out.println(transaction);
+        }
 
+    }
 }

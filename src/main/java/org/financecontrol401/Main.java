@@ -31,9 +31,12 @@ public class Main {
                     TransactionService( transactionRepository,
                     balanceService, "src/main/resources/transaction.txt");
 
+            FindService findService=new FindService(transactionRepository);
 
+            Menu menu = new Menu(transactionService, findService);
+            menu.processUserChoice();
 
-
+/*
 
 //Ввод--------------------------------------
             ClientRequestTransaction requestTransaction = InputReader.readTransaction();
